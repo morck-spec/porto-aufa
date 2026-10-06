@@ -1,0 +1,408 @@
+/* ==========================================================================
+   INFINITY MODE - GOJO SATORU TRANSFORMATIONAL STYLESHEET
+   Controlled strictly via body.infinity-active
+   ========================================================================== */
+
+/* === GOJO SATORU MODE CSS VARIABLES OVERRIDES === */
+body.infinity-active {
+    --color-bg-primary: #010309;
+    --color-bg-secondary: #050818;
+    --color-bg-card: rgba(5, 10, 28, 0.88);
+    --color-bg-card-hover: rgba(14, 24, 60, 0.95);
+
+    --color-accent-primary: #00f0ff;
+    --color-accent-cyan: #00f0ff;        /* Six Eyes Cyan */
+    --color-accent-cyan-glow: #70f3ff;   /* Six Eyes Electric Glow */
+    --color-accent-blue: #1d4ed8;        /* Limitless Blue */
+    --color-accent-purple: #9333ea;      /* Hollow Purple */
+    --color-accent-purple-glow: #c084fc; /* Hollow Purple Glow */
+    --color-accent-magenta: #d946ef;
+
+    --glass-border: rgba(0, 240, 255, 0.35);
+    --glass-border-bright: rgba(147, 51, 234, 0.8);
+    --glass-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 240, 255, 0.35);
+    --glass-shadow-hover: 0 20px 50px -10px rgba(0, 0, 0, 1), 0 0 55px rgba(147, 51, 234, 0.7);
+}
+
+/* ==========================================================================
+   DEDICATED GOJO SATORU INFINITY WORLD VISUAL LAYERS
+   ========================================================================== */
+.infinity-world {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+    overflow: hidden;
+}
+
+body.infinity-active .infinity-world {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 1. Unlimited Void Spatial Depth Grid & Distortion */
+.infinity-void-grid {
+    position: absolute;
+    inset: -50%;
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(600px) rotateX(65deg) translateY(-10%);
+    animation: gridInfiniteScroll 20s linear infinite;
+    mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 30%, transparent 80%);
+}
+
+@keyframes gridInfiniteScroll {
+    0% { transform: perspective(600px) rotateX(65deg) translateY(0); }
+    100% { transform: perspective(600px) rotateX(65deg) translateY(60px); }
+}
+
+.infinity-spatial-distortion {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 50% 25%, rgba(0, 240, 255, 0.16) 0%, transparent 55%),
+        radial-gradient(circle at 75% 75%, rgba(147, 51, 234, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(225, 29, 72, 0.12) 0%, transparent 50%);
+    filter: blur(80px);
+}
+
+/* 2. Six Eyes Glowing Abstract Pupil & Orbs */
+.six-eyes-container {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.six-eyes-orb {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #70f3ff 0%, #00f0ff 40%, rgba(0, 240, 255, 0) 75%);
+    box-shadow: 0 0 50px #00f0ff, 0 0 100px rgba(0, 240, 255, 0.6);
+    filter: blur(15px);
+    animation: eyePulseAura 4s ease-in-out infinite alternate;
+}
+
+.eye-left { left: 15%; top: 20%; }
+.eye-right { right: 15%; top: 20%; }
+
+.six-eyes-pupil-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 220px;
+    border: 2px dashed rgba(0, 240, 255, 0.4);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);
+    animation: eyeRingRotate 30s linear infinite;
+}
+
+@keyframes eyePulseAura {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+@keyframes eyeRingRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 3. Floating Hollow Purple Core Orb (Red + Blue Cursed Fusion) */
+.hollow-purple-container {
+    position: absolute;
+    top: 35%;
+    right: 8%;
+    width: 260px;
+    height: 260px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cursed-energy-red {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.8) 0%, rgba(220, 38, 38, 0.2) 60%, transparent 80%);
+    filter: blur(20px);
+    animation: fusionRotateRed 6s ease-in-out infinite alternate;
+}
+
+.cursed-energy-blue {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.85) 0%, rgba(37, 99, 235, 0.25) 60%, transparent 80%);
+    filter: blur(20px);
+    animation: fusionRotateBlue 6s ease-in-out infinite alternate;
+}
+
+.hollow-purple-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 0%, #c084fc 30%, #9333ea 65%, rgba(147, 51, 234, 0) 85%);
+    box-shadow: 0 0 40px #ffffff, 0 0 80px #c084fc, 0 0 120px #9333ea;
+    animation: purpleCorePulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes fusionRotateRed {
+    0% { transform: translate(-20px, -10px) scale(0.9); }
+    100% { transform: translate(15px, 20px) scale(1.1); }
+}
+
+@keyframes fusionRotateBlue {
+    0% { transform: translate(20px, 10px) scale(1.1); }
+    100% { transform: translate(-15px, -20px) scale(0.9); }
+}
+
+@keyframes purpleCorePulse {
+    0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 30px #ffffff, 0 0 60px #c084fc, 0 0 90px #9333ea; }
+    100% { transform: translate(-50%, -50%) scale(1.12); box-shadow: 0 0 60px #ffffff, 0 0 110px #c084fc, 0 0 160px #9333ea; }
+}
+
+/* 4. Concentric Spatial Infinity Rings World */
+.infinity-rings-world {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 900px;
+    pointer-events: none;
+}
+
+.spatial-ring {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-outer {
+    width: 850px;
+    height: 850px;
+    border: 1.5px dashed rgba(0, 240, 255, 0.25);
+    animation: ringSpinSlow 45s linear infinite;
+}
+
+.ring-mid {
+    width: 650px;
+    height: 650px;
+    border: 1.5px solid rgba(147, 51, 234, 0.3);
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.15);
+    animation: ringSpinSlow 30s linear infinite reverse;
+}
+
+.ring-inner {
+    width: 450px;
+    height: 450px;
+    border: 1px stroke rgba(112, 243, 255, 0.35);
+    animation: ringSpinSlow 20s linear infinite;
+}
+
+@keyframes ringSpinSlow {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==========================================================================
+   UNLIMITED VOID TRANSITION OVERLAY
+   ========================================================================== */
+.void-portal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: radial-gradient(circle at center, #010309 10%, #000000 90%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.void-portal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.void-energy-ring {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.void-portal-overlay.active .ring-cyan {
+    width: 850px;
+    height: 850px;
+    border: 4px solid #00f0ff;
+    box-shadow: 0 0 70px #00f0ff, inset 0 0 70px #00f0ff;
+    animation: portalExpandRing 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.void-portal-overlay.active .ring-purple {
+    width: 1050px;
+    height: 1050px;
+    border: 4px solid #9333ea;
+    box-shadow: 0 0 90px #9333ea, inset 0 0 90px #9333ea;
+    animation: portalExpandRing 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.void-core-eye {
+    font-size: 5.5rem;
+    color: #00f0ff;
+    text-shadow: 0 0 35px #00f0ff, 0 0 70px #9333ea;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.void-portal-overlay.active .void-core-eye {
+    transform: scale(1.4);
+    opacity: 1;
+}
+
+.void-text-flash {
+    margin-top: 2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    color: #ffffff;
+    text-shadow: 0 0 25px #00f0ff, 0 0 50px #9333ea;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: transform 0.4s ease 0.2s, opacity 0.4s ease 0.2s;
+}
+
+.void-portal-overlay.active .void-text-flash {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes portalExpandRing {
+    0% { transform: scale(0); opacity: 1; }
+    80% { opacity: 0.9; }
+    100% { transform: scale(2.3); opacity: 0; }
+}
+
+/* ==========================================================================
+   ELEMENT OVERRIDES WHEN body.infinity-active IS ON
+   ========================================================================== */
+
+/* Navbar Navigation in Gojo Mode */
+body.infinity-active .glass-nav-header {
+    background: rgba(4, 8, 26, 0.94) !important;
+    border-bottom: 1.5px solid rgba(0, 240, 255, 0.45) !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.35) !important;
+}
+
+body.infinity-active .logo-icon-anim {
+    color: #00f0ff !important;
+    text-shadow: 0 0 18px #00f0ff, 0 0 30px #9333ea !important;
+}
+
+/* Hero Badge & Section Headers in Gojo Mode */
+body.infinity-active .hero-badge {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), rgba(147, 51, 234, 0.35)) !important;
+    border-color: #00f0ff !important;
+    color: #00f0ff !important;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.5) !important;
+}
+
+body.infinity-active .hero-name {
+    background: linear-gradient(135deg, #00f0ff 0%, #c084fc 40%, #70f3ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    filter: drop-shadow(0 0 22px rgba(0, 240, 255, 0.8)) !important;
+}
+
+body.infinity-active .section-subtitle {
+    color: #00f0ff !important;
+    letter-spacing: 0.15em !important;
+}
+
+body.infinity-active .section-title {
+    color: #ffffff !important;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4) !important;
+}
+
+body.infinity-active .section-line {
+    background: linear-gradient(90deg, #00f0ff, #9333ea, transparent) !important;
+}
+
+/* Avatar Card in Gojo Mode (Original Photo preserved with spatial aura) */
+body.infinity-active .avatar-glass-card {
+    background: linear-gradient(160deg, rgba(6, 12, 32, 0.95) 0%, rgba(18, 28, 68, 0.98) 100%) !important;
+    border: 2px solid rgba(0, 240, 255, 0.55) !important;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.98), 0 0 60px rgba(0, 240, 255, 0.45), inset 0 0 45px rgba(147, 51, 234, 0.4) !important;
+}
+
+body.infinity-active .card-glow-aurora {
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.38) 0%, rgba(147, 51, 234, 0.32) 45%, transparent 70%) !important;
+    animation: auroraPulse 5s ease-in-out infinite alternate !important;
+}
+
+body.infinity-active .ring-1 {
+    border: 2px dashed rgba(0, 240, 255, 0.7) !important;
+    box-shadow: inset 0 0 35px rgba(0, 240, 255, 0.35), 0 0 45px rgba(0, 240, 255, 0.45) !important;
+}
+
+body.infinity-active .ring-2 {
+    border: 2px solid rgba(147, 51, 234, 0.65) !important;
+    box-shadow: inset 0 0 45px rgba(147, 51, 234, 0.35), 0 0 55px rgba(147, 51, 234, 0.55) !important;
+}
+
+/* All Cards Styling in Gojo Mode */
+body.infinity-active .glass-card {
+    background: var(--color-bg-card) !important;
+    border: 1.5px solid rgba(0, 240, 255, 0.35) !important;
+    box-shadow: var(--glass-shadow) !important;
+}
+
+body.infinity-active .glass-card:hover {
+    border-color: rgba(0, 240, 255, 0.7) !important;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.95), 0 0 45px rgba(147, 51, 234, 0.5) !important;
+}
+
+/* Infinity Mode Toggle Button Styling */
+.btn-zero-g.active-gojo-btn {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.35), rgba(147, 51, 234, 0.45)) !important;
+    border-color: #00f0ff !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 0 50px rgba(147, 51, 234, 0.6) !important;
+}
+
+.btn-zero-g.active-gojo-btn .btn-mode-icon {
+    color: #00f0ff !important;
+    text-shadow: 0 0 15px #00f0ff !important;
+}
